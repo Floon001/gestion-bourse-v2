@@ -30,18 +30,33 @@ loadDashboard();
 
 async function loadDashboard() {
 
-document.getElementById(
-'auth-container'
-).style.display = 'none';
+    document.getElementById(
+        'auth-container'
+    ).style.display = 'none';
 
-document.getElementById(
-'dashboard'
-).style.display = 'block';
+    document.getElementById(
+        'dashboard'
+    ).style.display = 'block';
 
-document.getElementById(
-'portfolio-value'
-).innerHTML =
-'Connexion réussie';
+    const { data, error } =
+        await supabase
+            .from('positions')
+            .select('*');
+
+    if (error) {
+
+        document.getElementById(
+            'portfolio-value'
+        ).innerHTML =
+            error.message;
+
+        return;
+    }
+
+    document.getElementById(
+        'portfolio-value'
+    ).innerHTML =
+        JSON.stringify(data, null, 2);
 
 }
 
