@@ -1,4 +1,4 @@
-```javascript
+javascript
 import { supabase } from './services/supabase.js';
 
 window.signIn = async function () {
@@ -57,4 +57,4 @@ if (session) {
 loadDashboard();
 
 }
-```
+
