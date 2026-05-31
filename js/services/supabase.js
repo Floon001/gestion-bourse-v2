@@ -1,4 +1,3 @@
-```javascript
 const SUPABASE_URL =
 'https://kecunxfztdnwrkhundhk.supabase.co';
 
@@ -10,4 +9,3 @@ window.supabase.createClient(
   SUPABASE_URL,
   SUPABASE_PUBLISHABLE_KEY
 );
-```
