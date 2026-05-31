@@ -53,10 +53,48 @@ async function loadDashboard() {
         return;
     }
 
-    document.getElementById(
-        'portfolio-value'
-    ).innerHTML =
-        JSON.stringify(data, null, 2);
+    let html = '';
+
+data.forEach(position => {
+
+    html += `
+    <div style="
+        border:1px solid #ccc;
+        padding:15px;
+        margin-bottom:10px;
+        border-radius:8px;
+        background:white;
+    ">
+
+        <h3>${position.company_name}</h3>
+
+        <p>
+        <strong>Ticker :</strong>
+        ${position.ticker}
+        </p>
+
+        <p>
+        <strong>Portefeuille :</strong>
+        ${position.portfolio}
+        </p>
+
+        <p>
+        <strong>Quantité :</strong>
+        ${position.quantity}
+        </p>
+
+        <p>
+        <strong>PRU :</strong>
+        ${position.pru} €
+        </p>
+
+    </div>
+    `;
+});
+
+document.getElementById(
+    'portfolio-value'
+).innerHTML = html;
 
 }
 
